@@ -1,12 +1,13 @@
-FROM python:3.10.8-slim-buster
-
+FROM python:3.11.0rc2-alpine3.16
 WORKDIR /app
 
 RUN pip install --upgrade pip
 
-COPY . .
+COPY requirements.txt /app/
 
 RUN pip install -r requirements.txt
+
+COPY . /app/
 
 EXPOSE 8000
 
